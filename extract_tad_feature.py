@@ -142,7 +142,6 @@ def extract_feature(args):
     
     print(f"Processing slice {args.slice_id}/7: videos {start_idx} to {end_idx-1} out of {total_videos} total videos")
 
-    # Create the pretrained model directly
     model = create_model(
         'pretrain_videomae_giant_patch14_224',
         pretrained=False,
