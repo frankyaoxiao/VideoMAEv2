@@ -167,7 +167,7 @@ def extract_feature(args):
 
     to_process = []
     for vid_name in vid_list:
-        url = os.path.join(args.save_path, vid_name.split('.')[0] + '_mean.npy')
+        url = os.path.join(args.save_path, '.'.join(vid_name.split('.')[:-1]) + '_mean.npy')
         if not os.path.exists(url):
             to_process.append(vid_name)
     
@@ -178,7 +178,7 @@ def extract_feature(args):
     print(f"Extracting features for {len(to_process)} videos (skipping {len(vid_list) - len(to_process)} already processed)")
     
     for vid_name in tqdm(to_process, desc="Extracting features", dynamic_ncols=True):
-        url = os.path.join(args.save_path, vid_name.split('.')[0] + '_mean.npy')
+        url = os.path.join(args.save_path, '.'.join(vid_name.split('.')[:-1]) + '_mean.npy')
         video_path = os.path.join(args.data_path, vid_name)
         
         try:
